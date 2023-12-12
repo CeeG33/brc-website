@@ -10,3 +10,12 @@ a.nav-link {
     color: antiquewhite;
 }
 
+.feature-icon-small {
+    width: 3rem;
+    height: 3rem;
+}
+
+.bi {
+    fill: currentColor;
+    vertical-align: -.125em;
+}
