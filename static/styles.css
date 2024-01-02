@@ -3,7 +3,7 @@ nav.navbar {
 }
 
 
-img.rounded {
+nav img.rounded {
     background-color: antiquewhite;
 }
 
@@ -33,9 +33,10 @@ img.img-thumbnail.rounded {
 
 /* Carousel base class */
 .carousel {
-    background-color: black;
+    background-color: #6f9eac;
     margin-bottom: 4rem;
 }
+
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
     bottom: 3rem;
@@ -47,6 +48,9 @@ img.img-thumbnail.rounded {
     height: 32rem;
 }
 
+.carousel-item img {
+    margin-top: 160px;
+}
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
