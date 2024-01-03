@@ -49,7 +49,11 @@ img.img-thumbnail.rounded {
 }
 
 .carousel-item img {
-    margin-top: 160px;
+    margin-top: 170px;
+}
+
+#projectsCarousel .carousel-item img {
+    margin-top: 30px;
 }
 
 /* MARKETING CONTENT
