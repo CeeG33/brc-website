@@ -115,6 +115,20 @@ async = ["asgiref (>=3.2)"]
 dotenv = ["python-dotenv"]
 
 [[package]]
+name = "flask-mail"
+version = "0.9.1"
+description = "Flask extension for sending email"
+optional = false
+python-versions = "*"
+files = [
+    {file = "Flask-Mail-0.9.1.tar.gz", hash = "sha256:22e5eb9a940bf407bcf30410ecc3708f3c56cc44b29c34e1726fe85006935f41"},
+]
+
+[package.dependencies]
+blinker = "*"
+Flask = "*"
+
+[[package]]
 name = "flask-wtf"
 version = "1.2.1"
 description = "Form rendering, validation, and CSRF protection for Flask with WTForms."
@@ -408,4 +422,4 @@ email = ["email-validator"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "d634c50ebe9ea0c04d7f68b60fe3f55258c6a6c7ca7e0a2935b62018a52b7621"
+content-hash = "9ca433493dbb76d27b02b126312a563f66c1de3b3952aaa76ec3b0bc72e31e3e"

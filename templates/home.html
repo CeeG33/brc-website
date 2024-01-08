@@ -37,7 +37,7 @@
                 <p class="lead my-4">Chez BRC, nous sommes bien plus qu'une entreprise spécialisée dans les travaux de finition en carrelage. Nous sommes les artisans de l'élégance, les créateurs d'espaces qui respirent le raffinement et la qualité. Forts d'une réputation impeccable et de la confiance de nos clients, nous sommes déterminés à surpasser vos attentes à chaque projet.</p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                     <a href="#savoir-faire"><button type="button" class="btn btn-primary btn-lg px-4 gap-3">Savoir-faire</button></a>
-                    <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Contactez-nous</button>
+                    <a href="#contact"><button type="button" class="btn btn-primary btn-lg px-4 gap-3">Contactez-nous</button></a>
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
                     <p class="lead text-center">Chez BRC, nous transformons chaque espace en une œuvre d'art carrelée, imprégnée de qualité, de style et de durabilité.</p>
                     <p class="lead text-center">Faites confiance à notre expérience et à notre savoir-faire pour concrétiser vos projets de finition en carrelage.</p>
                     <p class="lead text-center"><em>Nous redéfinissons la beauté, un carreau à la fois.</em></p>
-                    <a href="#" class="btn btn-primary btn-lg my-5">Contactez-nous</a>
+                    <a href="#contact" class="btn btn-primary btn-lg my-5">Contactez-nous</a>
                 </div>
             </div>
                 
@@ -110,8 +110,8 @@
                 <div class="col-lg-6 col-md-8 mx-auto">
                     <p class="lead text-center">Notre savoir-faire transcende les simples travaux de carrelage. Chaque projet est une expression de notre engagement envers l'excellence et notre passion pour la création d'espaces exceptionnels.</p>
                     <p>
-                        <a href="#" class="btn btn-primary my-2">Contactez-nous</a>
-                        <a href="#" class="btn btn-secondary my-2">Clients</a>
+                        <a href="#contact" class="btn btn-primary my-2">Contactez-nous</a>
+                        <a href="#clients" class="btn btn-secondary my-2">Clients</a>
                     </p>
                 </div>
             </div>
@@ -192,7 +192,7 @@
                     <p class="lead text-center">Nous avons eu le privilège de collaborer avec une clientèle diversifiée, allant de particuliers exigeants à des entreprises renommées, en passant par des professionnels de l'architecture.</p>
                     <p class="lead text-center">Notre approche centrée sur le client va au-delà de la simple prestation de services ; c'est une collaboration où chaque projet est une opportunité de transformer des idées en réalité.</p>
                     <p>
-                        <a href="#" class="btn btn-primary my-2">Contactez-nous</a>
+                        <a href="#contact" class="btn btn-primary my-2">Contactez-nous</a>
                     </p>
                 </div>
             </div>
@@ -256,7 +256,7 @@
                     <p class="lead text-center">Parcourez notre galerie pour découvrir des espaces métamorphosés par notre équipe d'experts, des cuisines et salles de bains luxueuses aux halls d'entrée accueillants. Chaque projet est une histoire en carreaux, une histoire où la qualité, l'innovation et la beauté se rencontrent pour créer des espaces intemporels.</p>
                     <p class="lead text-center">Chez BRC, nos réalisations parlent d'elles-mêmes, et nous sommes fiers de partager ces chefs-d'œuvre avec vous.</p>
                     <p>
-                        <a href="#" class="btn btn-primary my-2">Contactez-nous</a>
+                        <a href="#contact" class="btn btn-primary my-2">Contactez-nous</a>
                     </p>
                 </div>
             </div>
@@ -884,6 +884,42 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
+
+        <!-- CONTACT US FORM -->
+        <section class="py-5 text-center container" id="contact">
+            <h1 class="mb-5 pb-2 border-bottom text-center fw-light">Contactez-nous</h1>
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <p class="lead text-center">Nous sommes impatients de donner vie à vos projets de carrelage avec notre expertise exceptionnelle. N'hésitez pas à nous contacter pour discuter de vos idées, obtenir un devis personnalisé ou planifier une consultation. Chez BRC, chaque interaction est une opportunité de créer quelque chose d'extraordinaire ensemble.</p>
+                </div>
+                <div class="row">
+                    {% if success %}
+                    <script>
+                        document.getElementById("contact").scrollIntoView();
+                    </script>
+                        <p class="lead text-center mt-3 text-success" ><b><em>Votre message a bien été envoyé. Nous reviendrons vers vous dans les plus brefs délais.</em></b></p>
+                    {% else %}
+                        <form method="POST" action="{{ url_for('home') }}">
+                            <div class="form-floating mb-3">
+                                <input type="name" name="name" class="form-control" id="floatingInput" placeholder="Pierre DUPONT" required>
+                                <label for="floatingInput">Nom</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="email" name="email" class="form-control" id="floatingEmail" placeholder="name@example.com" required>
+                                <label for="floatingEmail">Adresse email</label>
+                                <div id="emailHelp" class="form-text text-start">Nous ne partagerons jamais votre adresse mail.</div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <textarea name="message" class="form-control" placeholder="Envoyer un message" id="floatingTextarea" style="height: 150px" required></textarea>
+                                <label for="floatingTextarea">Message</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Envoyer</button>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+
         
         <!-- NAVBAR -->
         <nav class="navbar sticky-bottom mt-1 navbar-expand-sm">
@@ -905,7 +941,7 @@
                             <a class="nav-link" href="#realisations">Réalisations</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="#contact">Contact</a>
                         </li>
                     </ul>
                 </div>

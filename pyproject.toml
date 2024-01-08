@@ -13,6 +13,7 @@ black = "^23.11.0"
 flake8 = "^6.1.0"
 flask-wtf = "^1.2.1"
 python-dotenv = "^1.0.0"
+flask-mail = "^0.9.1"
 
 
 [build-system]
