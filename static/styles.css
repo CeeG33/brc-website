@@ -4,7 +4,7 @@ nav.navbar {
 
 
 nav img.rounded {
-    background-color: antiquewhite;
+    background-color: white;
 }
 
 a.nav-link {
@@ -28,12 +28,35 @@ img.img-thumbnail.rounded {
     background-color: transparent;
 }
 
+.btn-primary {
+    background-color: #19a4c7;
+    border-color: #19a4c7;
+}
+
+.card {
+    height: 442px;
+}
+
+.vr {
+    color: white;
+}
+
+.feature-icon-small {
+    color: white;
+    background-color: #033C74;
+}
+
+.feature-icon {
+    color: white;
+    background-color: #033C74;
+}
+
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
 /* Carousel base class */
 .carousel {
-    background-color: #6f9eac;
+    background-color: #19a4c7a1;
     margin-bottom: 4rem;
 }
 
