@@ -997,6 +997,76 @@
             </div>
         </section>
 
+        <!-- LEGAL TERMS MODAL -->
+        <div class="modal fade" id="legalTerms" tabindex="-1" aria-labelledby="legalTerms" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="legalTerms">Mentions légales</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table align-middle">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Nom de l'entreprise</th>
+                                    <td>BRC SARL</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Adresse</th>
+                                    <td>133, rue des Grands Champs 77127 LIEUSAINT</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">SIRET</th>
+                                    <td>80177777200014</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Immatriculation RCS</th>
+                                    <td>801 777 772 R.C.S. Melun</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">TVA Intracommunautaire</th>
+                                    <td>FR78801777772</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Contact</th>
+                                    <td>kbrc04@yahoo.fr / 06 89 99 59 75</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Hébergeur</th>
+                                    <td>Amazon Web Services, Inc. / P.O. Box 81226 / Seattle, WA 98108-1226 / USA</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PERSONAL DATA MODAL -->
+        <div class="modal fade" id="personalData" tabindex="-1" aria-labelledby="personalData" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="personalData">Données personnelles</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="lead">Chez BRC, nous accordons la plus haute importance à la confidentialité et à la sécurité de vos données personnelles. Nous ne collectons que les informations que vous choisissez de partager volontairement via notre formulaire de contact. Ces données, telles que votre nom, votre adresse e-mail et votre numéro de téléphone, sont strictement utilisées dans le seul but de répondre à votre demande et de faciliter la communication entre vous et notre équipe.</p>
+                        <p class="lead">Nous nous engageons à ne pas partager, vendre, louer ou divulguer vos informations personnelles à des tiers non autorisés. Vos données resteront confidentielles et seront traitées avec le plus grand respect. Nous mettons en œuvre des mesures de sécurité rigoureuses pour protéger vos informations contre tout accès non autorisé.</p>
+                        <p class="lead">En choisissant de nous contacter via notre formulaire, vous consentez à ce que BRC utilise vos données personnelles dans le cadre de notre réponse à votre demande. Si vous avez des préoccupations ou des questions concernant la manière dont nous traitons vos données, n'hésitez pas à nous contacter.</p>
+                        <p class="lead">Nous sommes engagés à respecter la confidentialité de vos informations personnelles et à maintenir la confiance que vous nous accordez.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- FOOTER -->
         <div class="container">
             <footer class="pt-5 pb-2">
@@ -1004,8 +1074,8 @@
                     <div class="col-2 mb-3">
                         <h2 class="fw-light">Liens</h2>
                         <ul class="nav flex-column">
-                            <li class="nav-item mb-2 lead"><a href="#" class="nav-link p-0 text-body-secondary">Mentions légales</a></li>
-                            <li class="nav-item mb-2 lead"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+                            <li class="nav-item mb-2 lead"><a href="#" class="nav-link p-0 text-body-secondary" data-bs-toggle="modal" data-bs-target="#legalTerms">Mentions légales</a></li>
+                            <li class="nav-item mb-2 lead"><a href="#" class="nav-link p-0 text-body-secondary" data-bs-toggle="modal" data-bs-target="#personalData">Données personnelles</a></li>
                         </ul>
                     </div>
             
