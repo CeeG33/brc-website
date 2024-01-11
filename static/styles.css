@@ -33,10 +33,6 @@ img.img-thumbnail.rounded {
     border-color: #19a4c7;
 }
 
-.card {
-    height: 442px;
-}
-
 .vr {
     color: white;
 }
@@ -51,6 +47,15 @@ img.img-thumbnail.rounded {
     background-color: #033C74;
 }
 
+.navbar-toggler-icon {
+    border-color: white;
+}
+
+footer {
+    color: white;
+}
+
+
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
@@ -60,9 +65,24 @@ img.img-thumbnail.rounded {
     margin-bottom: 4rem;
 }
 
+/* Clients carousel customising */
+.carousel#myCarousel {
+    height: 350px;
+    bottom: 2rem;
+    z-index: 10;
+}
+
+#myCarousel .carousel-item {
+    height: 23rem;
+}
+
+#myCarousel .carousel-item img {
+    margin-top: 60px;
+}
+
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
-    bottom: 3rem;
+    bottom: 2rem;
     z-index: 10;
 }
 
@@ -71,10 +91,7 @@ img.img-thumbnail.rounded {
     height: 32rem;
 }
 
-.carousel-item img {
-    margin-top: 170px;
-}
-
+/* Projects carousel customising */
 #projectsCarousel .carousel-item img {
     margin-top: 30px;
 }
