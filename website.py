@@ -33,14 +33,18 @@ def home():
         name = request.form.get("name")
         email = request.form.get("email")
         message = request.form.get("message")
-        
-        msg = Message("Message du formulaire de contact", sender=MAIL_USERNAME, recipients=[RECIPIENT_MAIL])
+
+        msg = Message(
+            "Message du formulaire de contact",
+            sender=MAIL_USERNAME,
+            recipients=[RECIPIENT_MAIL],
+        )
         msg.body = f"Nom : {name} - Email : {email} - Message : {message}"
-        
+
         mail.send(msg)
-        
+
         return render_template("home.html", success=True)
-    
+
     return render_template("home.html")
 
 
