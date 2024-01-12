@@ -3,7 +3,9 @@ from flask import Flask, render_template, request
 from dotenv import load_dotenv
 from flask_mail import Mail, Message
 
+
 load_dotenv()
+
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 MAIL_SERVER = os.getenv("MAIL_SERVER")
