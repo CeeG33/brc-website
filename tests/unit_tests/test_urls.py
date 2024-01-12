@@ -1,5 +1,4 @@
 import pytest
-from website import app, mail, RECIPIENT_MAIL, Message
 
 
 class TestURLs:
