@@ -1,0 +1,82 @@
+name: BRC Website CI/CD - Master branch only
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.12]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+        
+    - name: Install Dependencies
+      id: dependencies
+      run: |
+        pip install poetry --upgrade pip
+        poetry config virtualenvs.create false
+        poetry install --no-dev
+        
+    - name: Creates and sets environment variables
+      id: dot_env_creation
+      run: |
+        echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" > .env
+        echo "MAIL_SERVER=${{ secrets.MAIL_SERVER }}" >> .env
+        echo "MAIL_PORT=${{ secrets.MAIL_PORT }}" >> .env
+        echo "MAIL_USE_SSL=${{ secrets.MAIL_USE_SSL }}" >> .env
+        echo "MAIL_USERNAME=${{ secrets.MAIL_USERNAME }}" >> .env
+        echo "MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }}" >> .env
+        echo "RECIPIENT_MAIL=${{ secrets.RECIPIENT_MAIL }}" >> .env
+     
+    - name: Run Tests
+      run: |
+        pytest
+      if: ${{ steps.dependencies.outcome }} == "success"
+        
+    - name: Ensures test coverage is above 90%
+      id: coverage_test
+      run: |
+        pytest --cov-fail-under=90
+      if: ${{ steps.dependencies.outcome }} == "success"
+        
+    - name: Login to Docker Hub
+      id: dockerhub_login
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+      if: ${{ steps.coverage_test.outcome }} == "success"
+      
+    - name: Build and push Docker images
+      id: packaging
+      uses: docker/build-push-action@v5.0.0
+      with:
+        context: .
+        file: ./Dockerfile
+        push: true
+        tags: ceeg33/brc-website:${{ github.sha }},ceeg33/brc-website:latest
+      if: ${{ steps.dockerhub_login.outcome }} == "success"
+      
+    - name: Deploy Docker to AWS (EC2)
+      id: deployment
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USERNAME }}
+        key: ${{ secrets.EC2_SECRET_KEY }}
+        script: |
+          docker stop brc-website || true
+          docker rm brc-website || true
+          docker run --pull "always" -d -p 8000:8000 --name brc-website ${{ secrets.DOCKERHUB_USERNAME }}/brc-website:latest
+      if: ${{ steps.packaging.outcome }} == "success"
