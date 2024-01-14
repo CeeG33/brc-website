@@ -47,7 +47,9 @@ def home():
 
         return render_template("home.html", success=True)
 
-    return render_template("home.html")
+    elif request.method == "GET":
+    
+        return render_template("home.html")
 
 
 if __name__ == "__main__":
