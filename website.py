@@ -1,8 +1,9 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from dotenv import load_dotenv
 from flask_mail import Mail, Message
-
+from forms import ContactForm
+from flask_bootstrap import Bootstrap
 
 load_dotenv()
 
@@ -17,6 +18,7 @@ RECIPIENT_MAIL = os.getenv("RECIPIENT_MAIL")
 
 
 app = Flask(__name__)
+Bootstrap(app)
 app.secret_key = SECRET_KEY
 
 mail = Mail()
@@ -31,10 +33,12 @@ mail.init_app(app)
 @app.route("/", methods=["GET", "POST"])
 def home():
     """Renders the home page using the home.html file."""
-    if request.method == "POST":
-        name = request.form.get("name")
-        email = request.form.get("email")
-        message = request.form.get("message")
+    form = ContactForm()
+    
+    if form.validate_on_submit():
+        name = form.name.data
+        email = form.email.data
+        message = form.message.data
 
         msg = Message(
             "Message du formulaire de contact",
@@ -46,10 +50,10 @@ def home():
         mail.send(msg)
 
         return render_template("home.html", success=True)
-
-    elif request.method == "GET":
     
-        return render_template("home.html")
+    else:
+        
+        return render_template("home.html", form=form)
 
 
 if __name__ == "__main__":

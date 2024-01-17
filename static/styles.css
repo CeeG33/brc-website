@@ -55,6 +55,9 @@ footer {
     color: white;
 }
 
+div.form-group {
+    margin-bottom: 20px;
+}
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
