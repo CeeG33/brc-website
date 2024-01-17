@@ -32,7 +32,7 @@ mail.init_app(app)
 
 @app.route("/", methods=["GET", "POST"])
 def home():
-    """Renders the home page using the home.html file."""
+    """Renders the home page using the home.html file"""
     form = ContactForm()
     
     if form.validate_on_submit():
