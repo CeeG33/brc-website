@@ -15,7 +15,7 @@ ENV PYTHONUNBUFFERED 1
 # Install dependencies
 RUN pip install poetry --upgrade pip \
     && poetry config virtualenvs.create false \
-    && poetry install --no-dev
+    && poetry install --without dev
 
 # Expose port 8000 for accessing the application
 EXPOSE 8000
